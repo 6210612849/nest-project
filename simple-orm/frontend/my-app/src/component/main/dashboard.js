@@ -2,6 +2,7 @@
 
 
 import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
+import Login from './Login';
 
 const io = require("socket.io-client");
 const socket = io("http://localhost:11111/")
@@ -44,22 +45,22 @@ const Dashboard = () => {
         setHiServer("already send hi at ")
     }
 
-    useEffect(() => {
-        fetch('http://localhost:33333/user/', {
-            method: 'GET',
-        })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                console.log(responseJson)
-                setUser(responseJson)
+    // useEffect(() => {
+    //     fetch('http://localhost:33333/user/', {
+    //         method: 'GET',
+    //     })
+    //         .then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log(responseJson)
+    //             setUser(responseJson)
 
-            })
+    //         })
 
-    }, [])
+    // }, [])
     return (
 
         <div style={{ marginTop: "20px" }} >
-            {user.map((detail, index) => (
+            {/* {user.map((detail, index) => (
                 <div key={index} style={{ marginTop: "10px" }}>
 
                     <div>uuid  {detail.uuid}
@@ -82,7 +83,9 @@ const Dashboard = () => {
                 <div>
                     <p>server to message : {messages}</p>
                 </div>
-            </div>
+                
+            </div> */}
+            <Login></Login>
         </div>
 
     );
